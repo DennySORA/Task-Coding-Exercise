@@ -41,7 +41,7 @@ class Task:
         task_with_declarative.name = task_with_struct.name
         task_with_declarative.status = task_with_struct.status
         task_update_result_with_declarative = self.task_database.update_task(task_with_declarative)
-        return task_update_result_with_declarative
+        return TaskStruct.from_orm(task_update_result_with_declarative)
 
     @error_gather
     def delete_task(self, task_id: int):
